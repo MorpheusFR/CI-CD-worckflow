@@ -25,7 +25,7 @@ jobs:
         
       - name: Run unit tests  # Step to run unit tests
         run: |
-          # Add commands to run unit tests
+          echo "Tests to be added"
         
       - name: Update project code  # Step to update the project code
         run: |
