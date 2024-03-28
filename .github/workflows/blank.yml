@@ -32,6 +32,18 @@ jobs:
         run: |
           echo "This is the workflow output captured for screenshot."
           # Add any additional commands whose output you want to capture
+      
+      - name: Create pull request comment (optional)
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: 'CI/CD workflow completed successfully!'
+            })
 
       # This step is not recommended for security reasons (see previous explanation)
       # - name: Update project code (not recommended)
